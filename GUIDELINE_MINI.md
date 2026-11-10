@@ -16,12 +16,12 @@
 - Box bám sát vật thể nghĩa là: Box ôm sát phần thân xe nhìn thấy được, không lấy thêm mặt đường, trời hay xe bên cạnh.
 - Vật thể bị che khuất: Vật thể bị che một phần vẫn gán box quanh phần nhìn thấy được nếu nhận diện được lớp.
 - Vật thể bị cắt bởi rìa ảnh: Box chạm đúng rìa ảnh khi vật thể bị cắt khung; không đoán phần nằm ngoài ảnh.
-- Vật thể rất nhỏ/mơNếu không chắc chắn 100% về lớp và không thể suy luận, không gán box .
+- Vật thể rất nhỏ hoặc ở xa: nếu không thể xác định chắc chắn lớp và ranh giới box từ ảnh, không gán box; chỉ gán những xe vẫn đủ rõ để nhận diện.
 
 ## Ghi lại quyết định cho ít nhất ba ca mơ hồ
 
 | Ảnh | Tình huống | Quyết định cuối | Lý do theo schema |
 | --- | --- | --- | --- |
-| `drive_...` | | | |
-| `drive_...` | | | |
-| `drive_...` | | | |
+| `drive_001` | Xe ở xa trong hậu cảnh, quá nhỏ để xác định chắc lớp và ranh giới box. | Bỏ qua xe quá nhỏ/không rõ; vẫn gán các xe nhìn đủ rõ. | Không suy đoán lớp hay tọa độ box khi ảnh không đủ chi tiết. |
+| `drive_002` | Nhiều xe ở xa trong dòng giao thông dày, một số xe nhỏ hoặc chồng lấp. | Chỉ gán xe có thể nhận diện và tách box đáng tin cậy; bỏ qua xe quá xa/không rõ. | Tránh đoán box hoặc lớp cho vật thể không phân biệt được trong ảnh. |
+| `drive_003` | Xe ở xa trong cụm giao thông tại giao lộ, ranh giới một số xe khó xác định. | Chỉ gán xe có lớp và biên box đủ rõ; bỏ qua các xe quá nhỏ/không rõ. | Áp dụng nhất quán quy tắc vật thể nhỏ/xa và không suy đoán phần bị lẫn với xe khác. |
